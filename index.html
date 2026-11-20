@@ -42,6 +42,12 @@
       <div class="carousel-slide">
         <img alt="Featured photo 4">
       </div>
+      <div class="carousel-slide">
+        <img alt="Featured photo 5">
+      </div>
+      <div class="carousel-slide">
+        <img alt="Featured photo 6">
+      </div>
     </div>
     <div class="hero-scrim"></div>
 
@@ -50,7 +56,7 @@
         <span class="chevron">&#8249;</span><span class="line"></span>
       </button>
       <div class="carousel-counter">
-        <span class="current">01</span><span class="sep"></span><span class="total">04</span>
+        <span class="current">01</span><span class="sep"></span><span class="total">06</span>
       </div>
       <button class="carousel-line next" aria-label="Next photo">
         <span class="line"></span><span class="chevron">&#8250;</span>
@@ -81,7 +87,7 @@
 <!-- ================= ABOUT ================= -->
 <section class="about" id="about">
   <div class="about-image">
-    <img src="DeWilgersDine-098.jpg" alt="Photographer portrait" loading="lazy" onerror="this.src='https://picsum.photos/900/1100?random=8'">
+    <img src="WhatsApp Image 2026-11-20 at 15.01.24.jpeg" alt="Photographer portrait" loading="lazy" onerror="this.src='https://picsum.photos/900/1100?random=8'">
   </div>
   <div class="about-content">
     <p class="eyebrow">About</p>
@@ -99,6 +105,70 @@
     <h2>Book a session</h2>
     <p class="contact-sub">Reach out directly and I'll get back to you within a couple of days.</p>
   </div>
+
+  <p class="form-tc-note">By filling out this form, you're agreeing to be contacted about your session.</p>
+
+  <div data-fs-success class="form-message form-message-success" hidden>Thanks — your message has been sent. I'll get back to you within a couple of days.</div>
+  <div data-fs-error class="form-message form-message-error" hidden></div>
+
+  <form id="bookingForm" class="booking-form">
+    <div class="form-field">
+      <label for="fullName">Name &amp; Surname</label>
+      <input type="text" id="fullName" name="name" data-fs-field required>
+      <span data-fs-error="name" class="field-error"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" data-fs-field required>
+      <span data-fs-error="email" class="field-error"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="phone">Cellphone number</label>
+      <input type="tel" id="phone" name="phone" data-fs-field required>
+      <span data-fs-error="phone" class="field-error"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="language">Language</label>
+      <select id="language" name="language" data-fs-field required>
+        <option value="" disabled selected>Select option</option>
+        <option value="Afrikaans">Afrikaans</option>
+        <option value="English">English</option>
+      </select>
+      <span data-fs-error="language" class="field-error"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="sessionType">What type of session are you looking for?</label>
+      <select id="sessionType" name="session_type" data-fs-field required>
+        <option value="" disabled selected>Select option</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Couple / Engagement">Couple / Engagement</option>
+        <option value="Event">Event</option>
+        <option value="Dine">Dine</option>
+        <option value="Sport">Sport</option>
+        <option value="Headshot">Headshot</option>
+        <option value="Other">Other</option>
+      </select>
+      <span data-fs-error="session_type" class="field-error"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="message">Message (please add date &amp; venue if possible)</label>
+      <textarea id="message" name="message" rows="4" data-fs-field required></textarea>
+      <span data-fs-error="message" class="field-error"></span>
+    </div>
+
+    <button type="submit" class="form-submit" data-fs-submit-btn>Send Message</button>
+  </form>
+
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#bookingForm', formId: 'xvkgvblo' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
   <div class="contact-links">
     <!-- Edit the href and @handle below if your Instagram changes -->
@@ -147,16 +217,20 @@
   // the filenames, both lists must stay in the same order.
   // ============================================================
   const heroPhotosDesktop = [
-    'fireworks.jpg',
-    'troupan.jpg',
-    '7-IMG_0388.jpg',
-    '32-IMG_0552.jpg',
+    "IMG_1526.jpg",
+    "IMG_7243(1).jpg",
+    "4-IMG_0392.jpg",
+    "IMG_3801.jpg",
+    "IMG_1870.jpg",
+    "IMG_3577.jpg"
   ];
   const heroPhotosMobile = [
-    'hero-1.jpg',
-    '16-IMG_0631.jpg',
-    'hero-3.jpg',
-    'hero-4.jpg',
+    "IMG_9870.jpg",
+    "IMG_1913(1).jpg",
+    "IMG_9460.jpg",
+    "IMG_7746.jpg",
+    "86-IMG_2284.jpg",
+    "IMG_9987.jpg"
   ];
 
   const mobileQuery = window.matchMedia('(max-width: 720px)');
