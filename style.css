@@ -6,6 +6,7 @@
   --ink-soft: #6B6560;
   --accent: #C08A4E;
   --accent-soft: #E8DFD1;
+  --field-border: #C9B79C;
   --white: #FFFFFF;
 
   --font-display: 'Fraunces', serif;
@@ -297,15 +298,147 @@ img { max-width: 100%; display: block; }
 
 .portfolio-btn:hover .aperture-icon { transform: rotate(45deg); }
 
+/* ============ PRICES ============ */
+.prices {
+  background: var(--bg);
+  padding: 6rem var(--gutter);
+}
+
+.prices-grid {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+.price-card {
+  background: var(--white);
+  border: 1px solid var(--field-border);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.price-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.price-body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 1.4rem 1.5rem;
+}
+
+.price-body h3 {
+  font-size: 1.5rem;
+}
+
+.price-sub {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.price-amount {
+  margin: 0;
+  text-align: right;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.price-amount span {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Dines & Formals: full-width card, photo left, prices right */
+.price-card-wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+}
+
+.price-card-wide img {
+  width: 48%;
+  height: auto;
+  aspect-ratio: auto;
+  min-height: 260px;
+}
+
+.price-body-stack {
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.3rem;
+  padding: 1.6rem;
+}
+
+.price-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.price-rows li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--accent-soft);
+}
+
+.price-rows span {
+  font-size: 0.95rem;
+}
+
+.price-rows strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.price-note {
+  max-width: 640px;
+  margin: 2rem auto 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.prices .portfolio-link-wrap {
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .prices-grid { grid-template-columns: 1fr; }
+  .price-card-wide { flex-direction: column; }
+  .price-card-wide img { width: 100%; height: auto; aspect-ratio: 3 / 2; min-height: 0; }
+}
+
 /* ============ ABOUT ============ */
 .about {
   display: grid;
   grid-template-columns: 0.85fr 1fr;
   gap: clamp(2rem, 6vw, 5rem);
   align-items: center;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 5rem var(--gutter);
+  background: var(--bg-alt);
+  /* full-width tinted band, content still capped at --max-width */
+  padding: 5rem max(var(--gutter), calc((100% - var(--max-width)) / 2 + var(--gutter)));
 }
 
 .about-image img {
@@ -408,7 +541,7 @@ img { max-width: 100%; display: block; }
   font-size: 0.95rem;
   color: var(--ink);
   background: var(--white);
-  border: 1px solid var(--accent-soft);
+  border: 1px solid var(--field-border);
   border-radius: 2px;
   padding: 0.7rem 0.9rem;
   width: 100%;
@@ -418,6 +551,7 @@ img { max-width: 100%; display: block; }
 .form-field select:focus,
 .form-field textarea:focus {
   border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
   outline: none;
 }
 
@@ -429,6 +563,14 @@ img { max-width: 100%; display: block; }
 
 .form-field textarea {
   resize: vertical;
+}
+
+/* Date picker: keep the same height and look as the other fields (esp. on iPhone) */
+.form-field input[type="date"] {
+  min-height: 2.85rem;
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: left;
 }
 
 .field-error {
