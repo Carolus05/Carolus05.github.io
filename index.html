@@ -18,6 +18,7 @@
   <nav class="main-nav">
     <a href="#work">Work</a>
     <a href="#about">About</a>
+    <a href="#prices">Prices</a>
     <a href="#contact">Contact</a>
   </nav>
   <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -98,6 +99,64 @@
   </div>
 </section>
 
+<!-- ================= PRICES ================= -->
+<section class="prices" id="prices">
+  <div class="section-heading">
+    <p class="eyebrow">Pricing</p>
+    <h2>Session prices</h2>
+    <p class="contact-sub">Every session is 1 hour with unlimited photos.</p>
+  </div>
+
+  <div class="prices-grid">
+    <article class="price-card">
+      <img src="prices_img/price-portraits.jpg" alt="Black and white portrait of a man in a suit" width="800" height="1000" loading="lazy">
+      <div class="price-body">
+        <div>
+          <h3>Portraits</h3>
+          <p class="price-sub">Solo shoot on location</p>
+        </div>
+        <p class="price-amount">R300<span>per session</span></p>
+      </div>
+    </article>
+
+    <article class="price-card">
+      <img src="prices_img/price-couples.jpg" alt="Couple sharing a forehead kiss in a garden" width="800" height="1000" loading="lazy">
+      <div class="price-body">
+        <div>
+          <h3>Couples</h3>
+          <p class="price-sub">Casual couple shoot</p>
+        </div>
+        <p class="price-amount">R500<span>per couple</span></p>
+      </div>
+    </article>
+
+    <article class="price-card price-card-wide">
+      <img src="prices_img/price-dines.jpg" alt="Group of friends toasting at a Dine" width="1200" height="800" loading="lazy">
+      <div class="price-body price-body-stack">
+        <div>
+          <h3>Dines &amp; Formals</h3>
+          <p class="price-sub">Priced per person, based on group size</p>
+        </div>
+        <ul class="price-rows">
+          <li><span>Groups of less than 6</span><strong>R150</strong></li>
+          <li><span>Groups of 6 or more</span><strong>R120</strong></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <p class="price-note">Editing takes 1 to 2 weeks. Galleries are available for up to 3 weeks after release.</p>
+
+  <div class="portfolio-link-wrap">
+    <a href="Carlo_Botha_Photography_Price_List.pdf" download class="portfolio-btn">
+      <span>Download price list (PDF)</span>
+      <svg viewBox="0 0 40 40" class="aperture-icon small" aria-hidden="true">
+        <polygon points="20,4 33,12 33,28 20,36 7,28 7,12" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
 <!-- ================= CONTACT ================= -->
 <section class="contact" id="contact">
   <div class="section-heading">
@@ -156,7 +215,13 @@
     </div>
 
     <div class="form-field">
-      <label for="message">Message (please add date &amp; venue if possible)</label>
+      <label for="sessionDate">Preferred date</label>
+      <input type="date" id="sessionDate" name="date" data-fs-field>
+      <span data-fs-error="date" class="field-error"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="message">Message (please add the venue and any details)</label>
       <textarea id="message" name="message" rows="4" data-fs-field required></textarea>
       <span data-fs-error="message" class="field-error"></span>
     </div>
@@ -169,6 +234,16 @@
     formspree('initForm', { formElement: '#bookingForm', formId: 'xvkgvblo' });
   </script>
   <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+  <script>
+    // Date picker: stop people choosing a date in the past
+    (function () {
+      const d = document.getElementById('sessionDate');
+      if (!d) return;
+      const t = new Date();
+      d.min = new Date(t.getTime() - t.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    })();
+  </script>
 
   <div class="contact-links">
     <!-- Edit the href and @handle below if your Instagram changes -->
