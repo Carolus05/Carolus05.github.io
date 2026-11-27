@@ -5,6 +5,7 @@
   --ink: #2B2926;
   --ink-soft: #6B6560;
   --accent: #C08A4E;
+  --accent-text: #8F5F29; /* darker gold for small text, passes contrast on cream */
   --accent-soft: #E8DFD1;
   --field-border: #C9B79C;
   --white: #FFFFFF;
@@ -59,7 +60,7 @@ img { max-width: 100%; display: block; }
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin: 0 0 0.6rem;
   font-weight: 600;
 }
@@ -290,7 +291,7 @@ img { max-width: 100%; display: block; }
   transition: background 0.3s ease;
 }
 
-.portfolio-btn:hover { background: var(--accent); }
+.portfolio-btn:hover { background: var(--accent-text); }
 
 .portfolio-btn .aperture-icon {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -459,7 +460,7 @@ img { max-width: 100%; display: block; }
 }
 
 .fill-in {
-  color: var(--accent);
+  color: var(--accent-text);
   font-style: italic;
 }
 
@@ -467,12 +468,12 @@ img { max-width: 100%; display: block; }
   display: inline-block;
   margin-top: 0.6rem;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--accent-text);
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s ease;
 }
 
-.text-link:hover { border-color: var(--accent); }
+.text-link:hover { border-color: var(--accent-text); }
 
 @media (max-width: 780px) {
   .about {
@@ -534,6 +535,19 @@ img { max-width: 100%; display: block; }
   color: var(--ink-soft);
 }
 
+.req {
+  color: #c0503f;
+  font-weight: 600;
+}
+
+.form-required-note {
+  max-width: 640px;
+  margin: -0.8rem auto 1.6rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
 .form-field input,
 .form-field select,
 .form-field textarea {
@@ -593,7 +607,7 @@ img { max-width: 100%; display: block; }
   transition: background 0.3s ease;
 }
 
-.form-submit:hover { background: var(--accent); }
+.form-submit:hover { background: var(--accent-text); }
 .form-submit:disabled { opacity: 0.6; cursor: default; }
 
 .contact-links {
